@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SketchVLM</title>
+
+  <link rel="stylesheet" href="assets/css/bulma.min.css">
+  <link rel="stylesheet" href="assets/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="assets/css/index.css">
+</head>
+
+<body>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h1 class="title is-1 publication-title">
+        SketchVLM: Vision-language models can annotate images to explain thoughts and guide users
+      </h1>
+
+      <div class="is-size-5 publication-authors">
+        <span class="author-block"><a href="#">First Author</a></span>,
+        <span class="author-block"><a href="#">Second Author</a></span>,
+        <span class="author-block"><a href="#">Third Author</a></span>
+      </div>
+
+      <div class="is-size-6 publication-authors">
+        <span class="author-block">Princeton University</span> &nbsp;·&nbsp;
+        <span class="author-block">...</span>
+      </div>
+
+      <div class="publication-links">
+        <span class="link-block">
+          <a href="assets/pdf/sketchvlm_paper.pdf" class="external-link button is-normal is-rounded is-dark">
+            <span class="icon"><i class="fas fa-file-pdf"></i></span>
+            <span>Paper</span>
+          </a>
+        </span>
+
+        <span class="link-block">
+          <a href="#" class="external-link button is-normal is-rounded is-dark">
+            <span class="icon"><i class="ai ai-arxiv"></i></span>
+            <span>arXiv</span>
+          </a>
+        </span>
+
+        <span class="link-block">
+          <a href="#" class="external-link button is-normal is-rounded is-dark">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span>Code</span>
+          </a>
+        </span>
+
+        <span class="link-block">
+          <a href="#bibtex" class="button is-normal is-rounded is-dark">
+            <span class="icon"><i class="fas fa-quote-right"></i></span>
+            <span>BibTeX</span>
+          </a>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Teaser -->
+    <div class="columns is-centered">
+      <div class="column">
+        <figure class="image">
+          <img src="assets/images/teaser.png" alt="SketchVLM teaser">
+        </figure>
+        <p class="has-text-centered is-size-7 figure-caption">
+          SketchVLM produces non-destructive SVG overlays to visually explain answers.
+        </p>
+      </div>
+    </div>
+
+    <!-- Abstract -->
+    <div class="columns is-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content">
+          <p>
+            When answering questions about images, humans naturally point, label, and draw to explain their reasoning...
+            <!-- paste your abstract here -->
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Method -->
+    <div class="columns is-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-3">SketchVLM</h2>
+        <div class="content">
+          <ul>
+            <li><b>Visual scaffolding:</b> optional coordinate grid for spatial reference.</li>
+            <li><b>Structured stroke prompting:</b> XML stroke format for lines/curves/boxes/text.</li>
+            <li><b>XML → SVG conversion:</b> renders an editable overlay on the original image.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Results -->
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-3">Results</h2>
+
+        <div class="columns is-centered">
+          <div class="column">
+            <figure class="image">
+              <img src="assets/images/full_results_table.png" alt="Full results table">
+            </figure>
+            <p class="has-text-centered is-size-7 figure-caption">
+              Overall benchmark results across six tasks.
+            </p>
+          </div>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column">
+            <figure class="image">
+              <img src="assets/images/figure_sketchvlm_vs_nanobanana.png" alt="Multi-task qualitative comparison">
+            </figure>
+            <p class="has-text-centered is-size-7 figure-caption">
+              Qualitative comparisons across tasks.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Qualitative gallery -->
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-3">Qualitative Examples</h2>
+
+        <div class="gallery-grid">
+          <a class="gallery-item" href="assets/images/counting_example.png">
+            <img src="assets/images/counting_example.png" alt="Counting">
+            <div class="gallery-label">Counting</div>
+          </a>
+
+          <a class="gallery-item" href="assets/images/object_detection_example.png">
+            <img src="assets/images/object_detection_example.png" alt="Drawing Shapes">
+            <div class="gallery-label">Drawing Shapes</div>
+          </a>
+
+          <a class="gallery-item" href="assets/images/part_labeling_example.png">
+            <img src="assets/images/part_labeling_example.png" alt="Part Labeling">
+            <div class="gallery-label">Part Labeling</div>
+          </a>
+
+          <!-- <a class="gallery-item" href="assets/images/maze_example.png">
+            <img src="assets/images/maze_example.png" alt="Maze Navigation">
+            <div class="gallery-label">Maze Navigation</div>
+          </a> -->
+
+          <a class="gallery-item" href="assets/images/ball_drop_examples.png">
+            <img src="assets/images/ball_drop_examples.png" alt="Ball Drop">
+            <div class="gallery-label">Ball Drop</div>
+          </a>
+
+          <a class="gallery-item" href="assets/images/gemini_nb_versions.png">
+            <img src="assets/images/gemini_nb_versions.png" alt="Baselines">
+            <div class="gallery-label">Baselines</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Real world -->
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-3">Real-World Applications</h2>
+        <div class="columns is-centered">
+          <div class="column">
+            <figure class="image">
+              <img src="assets/images/multiturn_example.png" alt="Multi-turn UI guidance">
+            </figure>
+            <p class="has-text-centered is-size-7 figure-caption">
+              Multi-turn UI guidance with annotated steps.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BibTeX -->
+    <div class="columns is-centered" id="bibtex">
+      <div class="column is-two-thirds">
+        <h2 class="title is-3">BibTeX</h2>
+        <pre><code>@inproceedings{sketchvlm2026,
+  title={SketchVLM: Vision-language models can annotate images to explain thoughts and guide users},
+  author={...},
+  booktitle={ECCV},
+  year={2026}
+}</code></pre>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container is-max-desktop">
+    <div class="content has-text-centered">
+      <p>
+        This page template is based on the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/index.js"></script>
+</body>
+</html>

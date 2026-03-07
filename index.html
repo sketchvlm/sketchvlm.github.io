@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="SketchVLM: Vision-language models can annotate images to explain thoughts and guide users.">
+  <meta name="keywords" content="SketchVLM, VLM, vision-language, sketch, annotation, SVG">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SketchVLM</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="css/bulma.min.css">
+  <link rel="stylesheet" href="css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="#">
+        <span class="icon"><i class="fas fa-home"></i></span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero / Title -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            SketchVLM: Vision-Language Models Can Annotate Images to Explain Thoughts and Guide Users
+          </h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="#">First Author</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Second Author</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Third Author</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Auburn University,&nbsp;</span>
+            <span class="author-block"><sup>2</sup>Institution Two</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="pdf/sketchvlm_paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#bibtex"
+                   class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-quote-right"></i></span>
+                  <span>BibTeX</span>
+                </a>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <figure class="image">
+        <img src="images/teaser_v2.png" alt="SketchVLM teaser">
+      </figure>
+      <h2 class="subtitle has-text-centered" style="margin-top:1rem;">
+        For complex questions, modern chatbots like ChatGPT often return long text responses (a) that are hard for users to understand, verify, and follow. In contrast, SketchVLM guides users (b) step by step by directly annotating the input image and grounding instructions in visual evidence—here, guiding a user through checking their car's oil level (image source: <a href="https://www.youtube.com/watch?v=tNNyu9S65E4">YouTube</a>).
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content">
+          <p>
+            When answering questions about images, humans naturally point, label, and draw to explain their reasoning. In contrast, modern vision–language models (VLMs) such as Gemini-3-Pro and GPT-5 typically respond with only text, which can be difficult for users to verify. We present <strong>SketchVLM</strong>, a training-free, model-agnostic framework that enables VLMs to produce non-destructive, editable SVG overlays on the input image to visually explain their answers. Across six benchmarks spanning visual reasoning (maze navigation, ball-drop trajectory prediction, and object counting) and drawing (part labeling, connecting-the-dots, and drawing shapes around objects), SketchVLM improves visual reasoning task accuracy by up to +28.5 points and sketch quality by up to +48.3% over image-editing and fine-tuned sketching baselines, while also producing sketches that are more faithful to the model's stated answer. We find that single-turn generation already achieves strong accuracy and sketching quality, and multi-turn generation opens up further opportunities for human-AI collaboration.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Method -->
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content">
+          <p>SketchVLM operates in three stages:</p>
+          <ol>
+            <li><strong>Visual scaffolding</strong> — an optional coordinate grid is overlaid to give the model a shared spatial reference frame.</li>
+            <li><strong>Structured stroke prompting</strong> — the model emits strokes in a compact XML format specifying lines, Bézier curves, rectangles, and text labels.</li>
+            <li><strong>XML → SVG rendering</strong> — strokes are converted to a scalable vector overlay that can be displayed, edited, or fed back into the next conversational turn.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sketching approaches comparison (method figure) -->
+    <div class="columns is-centered">
+      <div class="column">
+        <figure class="image">
+          <img src="images/gemini_nb_versions.png" alt="Comparison of sketching approaches for VLMs">
+        </figure>
+        <p class="has-text-centered figure-caption">
+          Comparison of sketching approaches for VLMs: (a) Gemini outputs text only, (b) GeminiSketch draws on the image while outputting text, (c) Nanobanana only edits the image, and (d) Nanobanana+Gemini takes the edited image from Nanobanana and gives it to Gemini to respond.
+        </p>
+      </div>
+    </div>
+
+    <!-- Results table -->
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column">
+        <h2 class="title is-3">Results</h2>
+        <figure class="image">
+          <img src="images/full_results_table.png" alt="Full benchmark results table">
+        </figure>
+        <p class="has-text-centered figure-caption">
+          SketchVLM produces visual reasoning traces while maintaining competitive accuracy. Nanobanana+Gemini underperforms default Gemini, and fine-tuned sketching models (ViLASR, ThinkMorph) perform near random chance on visual reasoning tasks. Standard deviations are computed over 4 runs where reported.
+        </p>
+      </div>
+    </div>
+
+    <!-- Ablation -->
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column">
+        <figure class="image">
+          <img src="images/ablation_models.png" alt="Ablation study">
+        </figure>
+        <p class="has-text-centered figure-caption">
+          Ablation across inputs in single-turn mode. "Sketch" adds strokes/system prompt; "Grid" additionally overlays the coordinate grid. RMSE is reported for connecting-the-dots while accuracy is reported for the other tasks.
+        </p>
+      </div>
+    </div>
+
+    <!-- Alignment quality -->
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column">
+        <figure class="image">
+          <img src="images/alignment_quality_table.png" alt="Alignment quality">
+        </figure>
+        <p class="has-text-centered figure-caption">
+          VLM-judged sketch–text alignment (higher is better) and drawing quality (1–5, higher is better). Models fine-tuned to generate sketches show lower alignment, while Gemini SketchVLM has the highest alignment and drawing quality.
+        </p>
+      </div>
+    </div>
+
+    <!-- SketchVLM vs Nanobanana qualitative -->
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column">
+        <h2 class="title is-3">Qualitative Results</h2>
+        <figure class="image">
+          <img src="images/teaser.png" alt="SketchVLM vs Nanobanana qualitative comparison">
+        </figure>
+        <p class="has-text-centered figure-caption">
+          SketchVLM with Gemini 2.0 Pro produces correct answers and clear explanatory annotations across multiple tasks.
+        </p>
+      </div>
+    </div>
+
+    <!-- Per-task qualitative examples -->
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column">
+        <h2 class="title is-3">Task Examples</h2>
+
+        <figure class="image">
+          <img src="images/counting_example.png" alt="Counting example">
+        </figure>
+        <p class="has-text-centered figure-caption">
+          Nanobanana generates a different image and predicts an incorrect count. Gemini directly outputs a number and severely undercounts, while Gemini SketchVLM outputs the correct answer and produces visual annotations to explain its answer.
+        </p>
+
+        <figure class="image" style="margin-top: 2rem;">
+          <img src="images/object_detection_example.png" alt="Object detection example">
+        </figure>
+        <p class="has-text-centered figure-caption">
+          When prompted to outline the classes "person" and "sports-ball", Nanobanana replaces the original image with a newly generated one, whereas SketchVLM preserves the original image and draws shapes that accurately align with object boundaries and locations.
+        </p>
+
+        <figure class="image" style="margin-top: 2rem;">
+          <img src="images/part_labeling_example.png" alt="Part labeling example">
+        </figure>
+        <p class="has-text-centered figure-caption">
+          Qualitative comparison on the part labeling task. Gemini SketchVLM places each part label directly on its corresponding region while preserving the original image, producing more interpretable part annotations than Nanobanana.
+        </p>
+
+        <figure class="image" style="margin-top: 2rem;">
+          <img src="images/maze_example.png" alt="Maze navigation example">
+        </figure>
+        <p class="has-text-centered figure-caption">
+          Models are presented with a blank maze and asked to verify whether a proposed path from the green square to the red square is feasible.
+        </p>
+
+        <figure class="image" style="margin-top: 2rem;">
+          <img src="images/ball_drop_examples.png" alt="Ball drop physics example">
+        </figure>
+        <p class="has-text-centered figure-caption">
+          SketchVLM generates the most accurate ball drop physics images compared to other baselines.
+        </p>
+      </div>
+    </div>
+
+    <!-- Real-world / multi-turn -->
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column">
+        <h2 class="title is-3">Real-World Applications</h2>
+        <figure class="image">
+          <img src="images/multiturn_example.png" alt="Multi-turn UI guidance">
+        </figure>
+        <p class="has-text-centered figure-caption">
+          Multi-turn example of SketchVLM guiding a user through how to remove an image's background. At each turn, the model receives a screenshot then annotates the screenshot with labeled arrows and highlights UI elements to indicate the next step.
+        </p>
+      </div>
+    </div>
+
+    <!-- BibTeX -->
+    <div class="columns is-centered" id="bibtex" style="margin-top: 2rem;">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">BibTeX</h2>
+        <pre><code>@inproceedings{sketchvlm2026,
+  title     = {SketchVLM: Vision-Language Models Can Annotate Images to Explain Thoughts and Guide Users},
+  author    = {First Author and Second Author and Third Author},
+  booktitle = {Proceedings of ...},
+  year      = {2026}
+}</code></pre>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        This page was built using the
+        <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page template,
+        which is licensed under a
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+          Creative Commons Attribution-ShareAlike 4.0 International License
+        </a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const burger = document.querySelector('.navbar-burger');
+    const menu = document.querySelector('.navbar-menu');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('is-active');
+      menu.classList.toggle('is-active');
+    });
+  });
+</script>
+</body>
+</html>

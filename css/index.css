@@ -1,0 +1,117 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/* ── Navbar ── */
+.navbar {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* ── Hero / title area ── */
+.publication-title {
+  font-family: 'Google Sans', sans-serif;
+  line-height: 1.15;
+}
+
+.publication-authors {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors a {
+  color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+  text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-venue {
+  color: #555;
+  width: fit-content;
+  font-weight: bold;
+}
+
+/* ── Link buttons ── */
+.publication-links .button {
+  margin: 0.25rem;
+}
+
+/* ── Teaser section ── */
+.hero.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.hero.teaser .hero-body {
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+/* ── Figure captions ── */
+.figure-caption {
+  margin-top: 0.6rem;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+/* ── Qualitative gallery grid ── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  display: block;
+  transition: box-shadow 0.15s ease;
+}
+
+.gallery-item:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-label {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  background: rgba(0, 0, 0, 0.68);
+  color: #fff;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-family: 'Google Sans', sans-serif;
+}
+
+/* ── BibTeX block ── */
+pre {
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 1.25rem;
+  font-size: 0.88rem;
+  overflow-x: auto;
+}
+
+/* ── Footer ── */
+.footer {
+  padding: 2.5rem 1.5rem;
+  background: #fafafa;
+  border-top: 1px solid #ebebeb;
+}
+
+.footer .icon-link {
+  font-size: 25px;
+  color: #000;
+}
