@@ -43,20 +43,7 @@
           </h1>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="#">First Author</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#">Second Author</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#">Third Author</a><sup>2</sup>
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Auburn University,&nbsp;</span>
-            <span class="author-block"><sup>2</sup>Institution Two</span>
+            <span class="author-block">Anonymous Authors</span>
           </div>
 
           <div class="column has-text-centered">
@@ -120,35 +107,62 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content">
           <p>
-            When answering questions about images, humans naturally point, label, and draw to explain their reasoning. In contrast, modern vision–language models (VLMs) such as Gemini-3-Pro and GPT-5 typically respond with only text, which can be difficult for users to verify. We present <strong>SketchVLM</strong>, a training-free, model-agnostic framework that enables VLMs to produce non-destructive, editable SVG overlays on the input image to visually explain their answers. Across six benchmarks spanning visual reasoning (maze navigation, ball-drop trajectory prediction, and object counting) and drawing (part labeling, connecting-the-dots, and drawing shapes around objects), SketchVLM improves visual reasoning task accuracy by up to +28.5 points and sketch quality by up to +48.3% over image-editing and fine-tuned sketching baselines, while also producing sketches that are more faithful to the model's stated answer. We find that single-turn generation already achieves strong accuracy and sketching quality, and multi-turn generation opens up further opportunities for human-AI collaboration.
+            When answering questions about images, humans naturally point, label, and draw to explain their reasoning. In contrast, modern vision–language models (VLMs) such as Gemini-3-Pro and GPT-5 typically respond with only text, which can be difficult for users to verify. We present <strong>SketchVLM</strong>, a <strong>training-free, model-agnostic framework</strong> that enables VLMs to produce non-destructive, editable SVG overlays on the input image to visually explain their answers. Across six benchmarks spanning visual reasoning (maze navigation, ball-drop trajectory prediction, and object counting) and drawing (part labeling, connecting-the-dots, and drawing shapes around objects), SketchVLM improves visual reasoning task accuracy by up to <strong>+28.5 points</strong> and sketch quality by up to <strong>+48.3%</strong> over image-editing and fine-tuned sketching baselines, while also producing sketches that are <strong>more faithful to the model's stated answer</strong>. We find that single-turn generation already achieves strong accuracy and sketching quality, and <strong>multi-turn generation opens up further opportunities for human-AI collaboration</strong>.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- Method -->
-    <div class="columns is-centered">
+    <!-- SketchVLM properties -->
+    <div class="columns is-centered" style="margin-top: 2rem;">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Method</h2>
-        <div class="content">
-          <p>SketchVLM operates in three stages:</p>
-          <ol>
-            <li><strong>Visual scaffolding</strong> — an optional coordinate grid is overlaid to give the model a shared spatial reference frame.</li>
-            <li><strong>Structured stroke prompting</strong> — the model emits strokes in a compact XML format specifying lines, Bézier curves, rectangles, and text labels.</li>
-            <li><strong>XML → SVG rendering</strong> — strokes are converted to a scalable vector overlay that can be displayed, edited, or fed back into the next conversational turn.</li>
-          </ol>
+        <p style="font-size:1.05rem; margin-bottom:0.75rem;">
+          Existing approaches require task-specific training, modify the source image directly, or lack support for free-form visual annotation. <strong>SketchVLM is</strong>:
+        </p>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.4rem 1.5rem; font-size:1.05rem;">
+          <div style="display:flex; align-items:center; gap:0.5rem;"><img src="logos/green_check.png" class="task-logo" alt="✓"> <strong>Training-free</strong></div>
+          <div style="display:flex; align-items:center; gap:0.5rem;"><img src="logos/green_check.png" class="task-logo" alt="✓"> <strong>Multi-turn</strong></div>
+          <div style="display:flex; align-items:center; gap:0.5rem;"><img src="logos/green_check.png" class="task-logo" alt="✓"> <strong>Model-agnostic</strong></div>
+          <div style="display:flex; align-items:center; gap:0.5rem;"><img src="logos/green_check.png" class="task-logo" alt="✓"> <strong>General purpose</strong></div>
+          <div style="display:flex; align-items:center; gap:0.5rem;"><img src="logos/green_check.png" class="task-logo" alt="✓"> <strong>Non-destructive</strong></div>
+          <div style="display:flex; align-items:center; gap:0.5rem;"><img src="logos/green_check.png" class="task-logo" alt="✓"> <strong>Free-form drawing</strong></div>
         </div>
       </div>
     </div>
 
-    <!-- Sketching approaches comparison (method figure) -->
+    <!-- Key Takeaway -->
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column is-four-fifths">
+        <div class="content" style="background:#f8f8f8; border-left:4px solid #3273dc; border-radius:6px; padding:1.1rem 1.4rem;">
+          <p style="margin:0; font-size:1.15rem; line-height:1.5;">
+            Prompting frontier models (GPT-5 <img src="logos/openai_green.png" class="task-logo" alt="GPT"> and Gemini-3-Pro <img src="logos/gemini_main.png" class="task-logo" alt="Gemini">) to output sketches with SketchVLM yields superior <strong>generalizability, accuracy, and sketch quality</strong> compared to specialized fine-tuned sketching models (ViLaSR <img src="logos/vilasr.png" class="task-logo" alt="">, ThinkMorph <img src="logos/thinkmorph.png" class="task-logo" alt="">) and image-editing models (Nano Banana Pro <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana">).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Qualitative results figure -->
     <div class="columns is-centered" style="margin-top: 2rem;">
       <div class="column">
-        <figure class="image">
-          <img src="images/gemini_nb_versions.png" alt="Comparison of sketching approaches for VLMs">
-        </figure>
+        <div style="display:flex; align-items:stretch; gap:0.75rem;">
+          <!-- Task logos aligned to the 3 rows in the figure -->
+          <div style="display:flex; flex-direction:column; justify-content:space-around; flex-shrink:0; padding:0.5rem 0;">
+            <div style="display:flex; align-items:center; justify-content:center; flex:1;">
+              <img src="logos/ball.png" style="height:2.5rem; width:auto;" alt="Physics Ball Drop">
+            </div>
+            <div style="display:flex; align-items:center; justify-content:center; flex:1;">
+              <img src="logos/connect_dots.png" style="height:2.5rem; width:auto;" alt="Connect-the-Dots">
+            </div>
+            <div style="display:flex; align-items:center; justify-content:center; flex:1;">
+              <img src="logos/maze.png" style="height:2.5rem; width:auto;" alt="Maze Navigation">
+            </div>
+          </div>
+          <figure class="image" style="flex:1; min-width:0;">
+            <img src="images/teaser.png" alt="SketchVLM vs Nanobanana qualitative comparison">
+          </figure>
+        </div>
         <p class="has-text-centered figure-caption">
-          Comparison of sketching approaches for VLMs: (a) <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> outputs text only, (b) <img src="logos/gemini_main.png" class="task-logo" alt="Gemini">Sketch draws on the image while outputting text, (c) <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana"> only edits the image, and (d) <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana">+<img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> takes the edited image from <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana"> and gives it to <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> to respond.
+          <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> SketchVLM produces correct answers and clear explanatory annotations across multiple tasks.
         </p>
       </div>
     </div>
@@ -186,70 +200,6 @@
             A similar task to VPCT, but with harder to guess answers and ground truth ball trajectories generated with PHYRE.
           </p>
         </div>
-      </div>
-    </div>
-
-    <!-- Results table -->
-    <div class="columns is-centered" style="margin-top: 2rem;">
-      <div class="column">
-        <h2 class="title is-3">Results</h2>
-        <figure class="image">
-          <img src="images/full_results_table.png" alt="Full benchmark results table">
-        </figure>
-        <p class="has-text-centered figure-caption">
-          SketchVLM produces visual reasoning traces while maintaining competitive accuracy. <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana">+<img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> underperforms default <img src="logos/gemini_main.png" class="task-logo" alt="Gemini">, and fine-tuned sketching models (ViLASR, ThinkMorph) perform near random chance on visual reasoning tasks. Standard deviations are computed over 4 runs where reported.
-        </p>
-      </div>
-    </div>
-
-    <!-- Ablation -->
-    <div class="columns is-centered" style="margin-top: 2rem;">
-      <div class="column">
-        <figure class="image">
-          <img src="images/ablation_models.png" alt="Ablation study">
-        </figure>
-        <p class="has-text-centered figure-caption">
-          Ablation across inputs in single-turn mode. "Sketch" adds strokes/system prompt; "Grid" additionally overlays the coordinate grid. RMSE is reported for connecting-the-dots while accuracy is reported for the other tasks.
-        </p>
-      </div>
-    </div>
-
-    <!-- Alignment quality -->
-    <div class="columns is-centered" style="margin-top: 2rem;">
-      <div class="column">
-        <figure class="image">
-          <img src="images/alignment_quality_table.png" alt="Alignment quality">
-        </figure>
-        <p class="has-text-centered figure-caption">
-          VLM-judged sketch–text alignment (higher is better) and drawing quality (1–5, higher is better). Models fine-tuned to generate sketches show lower alignment, while <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> SketchVLM has the highest alignment and drawing quality.
-        </p>
-      </div>
-    </div>
-
-    <!-- SketchVLM vs Nanobanana qualitative -->
-    <div class="columns is-centered" style="margin-top: 2rem;">
-      <div class="column">
-        <h2 class="title is-3">Qualitative Results</h2>
-        <div style="display:flex; align-items:stretch; gap:0.75rem;">
-          <!-- Task logos aligned to the 3 rows in the figure -->
-          <div style="display:flex; flex-direction:column; justify-content:space-around; flex-shrink:0; padding:0.5rem 0;">
-            <div style="display:flex; align-items:center; justify-content:center; flex:1;">
-              <img src="logos/ball.png" style="height:2.5rem; width:auto;" alt="Physics Ball Drop">
-            </div>
-            <div style="display:flex; align-items:center; justify-content:center; flex:1;">
-              <img src="logos/connect_dots.png" style="height:2.5rem; width:auto;" alt="Connect-the-Dots">
-            </div>
-            <div style="display:flex; align-items:center; justify-content:center; flex:1;">
-              <img src="logos/maze.png" style="height:2.5rem; width:auto;" alt="Maze Navigation">
-            </div>
-          </div>
-          <figure class="image" style="flex:1; min-width:0;">
-            <img src="images/teaser.png" alt="SketchVLM vs Nanobanana qualitative comparison">
-          </figure>
-        </div>
-        <p class="has-text-centered figure-caption">
-          SketchVLM with <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> 2.0 Pro produces correct answers and clear explanatory annotations across multiple tasks.
-        </p>
       </div>
     </div>
 
