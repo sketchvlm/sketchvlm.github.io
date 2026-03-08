@@ -142,14 +142,50 @@
     </div>
 
     <!-- Sketching approaches comparison (method figure) -->
-    <div class="columns is-centered">
+    <div class="columns is-centered" style="margin-top: 2rem;">
       <div class="column">
         <figure class="image">
           <img src="images/gemini_nb_versions.png" alt="Comparison of sketching approaches for VLMs">
         </figure>
         <p class="has-text-centered figure-caption">
-          Comparison of sketching approaches for VLMs: (a) Gemini outputs text only, (b) GeminiSketch draws on the image while outputting text, (c) Nanobanana only edits the image, and (d) Nanobanana+Gemini takes the edited image from Nanobanana and gives it to Gemini to respond.
+          Comparison of sketching approaches for VLMs: (a) <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> outputs text only, (b) <img src="logos/gemini_main.png" class="task-logo" alt="Gemini">Sketch draws on the image while outputting text, (c) <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana"> only edits the image, and (d) <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana">+<img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> takes the edited image from <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana"> and gives it to <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> to respond.
         </p>
+      </div>
+    </div>
+
+    <!-- Tasks -->
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Tasks</h2>
+        <div class="content">
+          <p>
+            <strong>Connect-the-Dots</strong> <img src="logos/connect_dots.png" class="task-logo" alt="connect-the-dots logo">
+            Contains 100 connect-the-dots images where the models must locate each dot and connect them in order.
+          </p>
+          <p>
+            <strong>Counting Objects</strong> <img src="logos/counting.png" class="task-logo" alt="counting logo">
+            Combines CountBench and Pixmo-Count. Models must count and place numbered markers on each object.
+          </p>
+          <p>
+            <strong>Drawing Shapes around Objects</strong> <img src="logos/shapes.png" class="task-logo" alt="shapes logo">
+            Uses images from the COCO validation set. Models must localize objects by drawing rectangles or ovals.
+          </p>
+          <p>
+            <strong>Part Labeling</strong> <img src="logos/label.png" class="task-logo" alt="labeling logo">
+            Combines subsets of PACO and Pascal-Part. Models must place correct text labels at corresponding part locations.
+          </p>
+          <p>
+            <strong>Maze Navigation</strong> <img src="logos/maze.png" class="task-logo" alt="maze logo">
+            Contains 200 unique 3×3 grid mazes we generate. Models must trace a proposed path and determine whether it reaches the goal without crossing walls.
+          </p>
+          <p>
+            <strong>VPCT</strong> is the Visual Physics Comprehension Test where models must predict which container a dropped ball will land in.
+          </p>
+          <p>
+            <strong>Physics Ball Drop</strong> <img src="logos/ball.png" class="task-logo" alt="ball drop logo">
+            A similar task to VPCT, but with harder to guess answers and ground truth ball trajectories generated with PHYRE.
+          </p>
+        </div>
       </div>
     </div>
 
@@ -161,7 +197,7 @@
           <img src="images/full_results_table.png" alt="Full benchmark results table">
         </figure>
         <p class="has-text-centered figure-caption">
-          SketchVLM produces visual reasoning traces while maintaining competitive accuracy. Nanobanana+Gemini underperforms default Gemini, and fine-tuned sketching models (ViLASR, ThinkMorph) perform near random chance on visual reasoning tasks. Standard deviations are computed over 4 runs where reported.
+          SketchVLM produces visual reasoning traces while maintaining competitive accuracy. <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana">+<img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> underperforms default <img src="logos/gemini_main.png" class="task-logo" alt="Gemini">, and fine-tuned sketching models (ViLASR, ThinkMorph) perform near random chance on visual reasoning tasks. Standard deviations are computed over 4 runs where reported.
         </p>
       </div>
     </div>
@@ -185,7 +221,7 @@
           <img src="images/alignment_quality_table.png" alt="Alignment quality">
         </figure>
         <p class="has-text-centered figure-caption">
-          VLM-judged sketch–text alignment (higher is better) and drawing quality (1–5, higher is better). Models fine-tuned to generate sketches show lower alignment, while Gemini SketchVLM has the highest alignment and drawing quality.
+          VLM-judged sketch–text alignment (higher is better) and drawing quality (1–5, higher is better). Models fine-tuned to generate sketches show lower alignment, while <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> SketchVLM has the highest alignment and drawing quality.
         </p>
       </div>
     </div>
@@ -194,11 +230,25 @@
     <div class="columns is-centered" style="margin-top: 2rem;">
       <div class="column">
         <h2 class="title is-3">Qualitative Results</h2>
-        <figure class="image">
-          <img src="images/teaser.png" alt="SketchVLM vs Nanobanana qualitative comparison">
-        </figure>
+        <div style="display:flex; align-items:stretch; gap:0.75rem;">
+          <!-- Task logos aligned to the 3 rows in the figure -->
+          <div style="display:flex; flex-direction:column; justify-content:space-around; flex-shrink:0; padding:0.5rem 0;">
+            <div style="display:flex; align-items:center; justify-content:center; flex:1;">
+              <img src="logos/ball.png" style="height:2.5rem; width:auto;" alt="Physics Ball Drop">
+            </div>
+            <div style="display:flex; align-items:center; justify-content:center; flex:1;">
+              <img src="logos/connect_dots.png" style="height:2.5rem; width:auto;" alt="Connect-the-Dots">
+            </div>
+            <div style="display:flex; align-items:center; justify-content:center; flex:1;">
+              <img src="logos/maze.png" style="height:2.5rem; width:auto;" alt="Maze Navigation">
+            </div>
+          </div>
+          <figure class="image" style="flex:1; min-width:0;">
+            <img src="images/teaser.png" alt="SketchVLM vs Nanobanana qualitative comparison">
+          </figure>
+        </div>
         <p class="has-text-centered figure-caption">
-          SketchVLM with Gemini 2.0 Pro produces correct answers and clear explanatory annotations across multiple tasks.
+          SketchVLM with <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> 2.0 Pro produces correct answers and clear explanatory annotations across multiple tasks.
         </p>
       </div>
     </div>
@@ -208,35 +258,40 @@
       <div class="column">
         <h2 class="title is-3">Task Examples</h2>
 
+        <h4 class="title is-5" style="margin-top:1.5rem;">
+          Counting Objects <img src="logos/counting.png" class="task-logo" alt="">
+        </h4>
         <figure class="image">
           <img src="images/counting_example.png" alt="Counting example">
         </figure>
         <p class="has-text-centered figure-caption">
-          Nanobanana generates a different image and predicts an incorrect count. Gemini directly outputs a number and severely undercounts, while Gemini SketchVLM outputs the correct answer and produces visual annotations to explain its answer.
+          <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana"> generates a different image and predicts an incorrect count. <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> directly outputs a number and severely undercounts, while <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> SketchVLM outputs the correct answer and produces visual annotations to explain its answer.
         </p>
 
-        <figure class="image" style="margin-top: 2rem;">
+        <h4 class="title is-5" style="margin-top:2rem;">
+          Drawing Shapes around Objects <img src="logos/shapes.png" class="task-logo" alt="">
+        </h4>
+        <figure class="image">
           <img src="images/object_detection_example.png" alt="Object detection example">
         </figure>
         <p class="has-text-centered figure-caption">
-          When prompted to outline the classes "person" and "sports-ball", Nanobanana replaces the original image with a newly generated one, whereas SketchVLM preserves the original image and draws shapes that accurately align with object boundaries and locations.
+          When prompted to outline the classes "person" and "sports-ball", <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana"> replaces the original image with a newly generated one, whereas SketchVLM preserves the original image and draws shapes that accurately align with object boundaries and locations.
         </p>
 
-        <figure class="image" style="margin-top: 2rem;">
+        <h4 class="title is-5" style="margin-top:2rem;">
+          Part Labeling <img src="logos/label.png" class="task-logo" alt="">
+        </h4>
+        <figure class="image">
           <img src="images/part_labeling_example.png" alt="Part labeling example">
         </figure>
         <p class="has-text-centered figure-caption">
-          Qualitative comparison on the part labeling task. Gemini SketchVLM places each part label directly on its corresponding region while preserving the original image, producing more interpretable part annotations than Nanobanana.
+          Qualitative comparison on the part labeling task. <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> SketchVLM places each part label directly on its corresponding region while preserving the original image, producing more interpretable part annotations than <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana">.
         </p>
 
-        <figure class="image" style="margin-top: 2rem;">
-          <img src="images/maze_example.png" alt="Maze navigation example">
-        </figure>
-        <p class="has-text-centered figure-caption">
-          Models are presented with a blank maze and asked to verify whether a proposed path from the green square to the red square is feasible.
-        </p>
-
-        <figure class="image" style="margin-top: 2rem;">
+        <h4 class="title is-5" style="margin-top:2rem;">
+          Physics Ball Drop <img src="logos/ball.png" class="task-logo" alt="">
+        </h4>
+        <figure class="image">
           <img src="images/ball_drop_examples.png" alt="Ball drop physics example">
         </figure>
         <p class="has-text-centered figure-caption">
@@ -254,6 +309,54 @@
         </figure>
         <p class="has-text-centered figure-caption">
           Multi-turn example of SketchVLM guiding a user through how to remove an image's background. At each turn, the model receives a screenshot then annotates the screenshot with labeled arrows and highlights UI elements to indicate the next step.
+        </p>
+
+        <!-- Docker: full row -->
+        <figure class="image" style="margin-top:1.5rem;">
+          <img src="images/docker.png" alt="Docker multi-turn example">
+        </figure>
+        <p class="has-text-centered figure-caption">
+          Multi-turn session where the model explains how to setup PyTorch in a Docker container.
+        </p>
+
+        <!-- GitHub: full row -->
+        <figure class="image" style="margin-top:1.5rem;">
+          <img src="images/github.png" alt="GitHub multi-turn example">
+        </figure>
+        <p class="has-text-centered figure-caption">
+          Multi-turn session where the model explains how to setup a CI/CD pipeline in GitHub.
+        </p>
+
+        <!-- Row: Hot water, Motherboard, Nutmeg -->
+        <div class="realworld-grid">
+          <div>
+            <figure class="image">
+              <img src="images/hot_water_crop1.png" alt="Hot water example">
+            </figure>
+            <p class="has-text-centered figure-caption">
+              How do I turn off my hot water?
+            </p>
+          </div>
+          <div>
+            <figure class="image">
+              <img src="images/motherboard_crop1.png" alt="Motherboard example">
+            </figure>
+            <p class="has-text-centered figure-caption">
+              I've got two sticks of RAM. Where do they go?
+            </p>
+          </div>
+          <div>
+            <figure class="image">
+              <img src="images/nutmeg_crop1.png" alt="Nutmeg example">
+            </figure>
+            <p class="has-text-centered figure-caption">
+              Where is the ground nutmeg?
+            </p>
+          </div>
+        </div>
+
+        <p class="has-text-centered figure-caption" style="margin-top:1rem;">
+          SketchVLM can be used in a variety of real world use cases.
         </p>
       </div>
     </div>

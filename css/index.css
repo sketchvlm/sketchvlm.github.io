@@ -104,6 +104,43 @@ pre {
   overflow-x: auto;
 }
 
+/* ── Task logos (inline with headings/text) ── */
+.task-logo {
+  height: 1.4em;
+  width: auto;
+  vertical-align: middle;
+  margin: 0 0.2em;
+  display: inline;
+}
+
+h4 .task-logo {
+  height: 1.3em;
+}
+
+/* ── Real-world grid (3-up rows) ── */
+.realworld-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 1.5rem;
+}
+
+.realworld-grid figure {
+  margin: 0;
+}
+
+.realworld-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.realworld-grid .figure-caption {
+  margin-top: 0.4rem;
+}
+
 /* ── Footer ── */
 .footer {
   padding: 2.5rem 1.5rem;
