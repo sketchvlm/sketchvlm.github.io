@@ -49,13 +49,6 @@
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="pdf/sketchvlm_paper.pdf"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
                 <a href="#"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="ai ai-arxiv"></i></span>
@@ -67,6 +60,14 @@
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://sketch-vlm-demo.vercel.app/"
+                  class="external-link button is-normal is-rounded is-dark"
+                  target="_blank">
+                  <span class="icon"><i class="fas fa-play"></i></span>
+                  <span>Demo</span>
                 </a>
               </span>
               <span class="link-block">
@@ -130,16 +131,18 @@
       </div>
     </div>
 
-    <!-- Key Takeaway -->
+    <!-- How It Works -->
     <div class="columns is-centered" style="margin-top: 2rem;">
       <div class="column is-four-fifths">
-        <div class="content" style="background:#f8f8f8; border-left:4px solid #3273dc; border-radius:6px; padding:1.1rem 1.4rem;">
-          <p style="margin:0; font-size:1.15rem; line-height:1.5;">
-            Prompting frontier models (GPT-5 <img src="logos/openai_green.png" class="task-logo" alt="GPT"> and Gemini-3-Pro <img src="logos/gemini_main.png" class="task-logo" alt="Gemini">) to output sketches with SketchVLM yields superior <strong>generalizability, accuracy, and sketch quality</strong> compared to specialized fine-tuned sketching models (ViLaSR <img src="logos/vilasr.png" class="task-logo" alt="">, ThinkMorph <img src="logos/thinkmorph.png" class="task-logo" alt="">) and image-editing models (Nano Banana Pro <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana">).
+        <h2 class="title is-3">Method</h2>
+        <div class="content">
+          <p>
+            First, a coordinate grid is appended to the input image so the model can reference precise spatial locations. Second, a system prompt instructs the VLM to output structured annotation primitives (circles, arrows, text labels, lines) as XML alongside its text answer. Third, the XML is automatically converted into an SVG overlay rendered on top of the original image, keeping the source pixels completely untouched. No fine-tuning or external vision tools are required as the entire pipeline runs through the VLM's existing capabilities.
           </p>
         </div>
       </div>
     </div>
+
 
     <!-- Qualitative results figure -->
     <div class="columns is-centered" style="margin-top: 2rem;">
@@ -168,7 +171,7 @@
     </div>
 
     <!-- Tasks -->
-    <div class="columns is-centered" style="margin-top: 2rem;">
+    <!-- <div class="columns is-centered" style="margin-top: 2rem;">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Tasks</h2>
         <div class="content">
@@ -198,6 +201,32 @@
           <p>
             <strong>Physics Ball Drop</strong> <img src="logos/ball.png" class="task-logo" alt="ball drop logo">
             A similar task to <a href="https://cbrower.dev/vpct" target="_blank">VPCT</a>, but with harder to guess answers and ground truth ball trajectories generated with PHYRE.
+          </p>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Tasks -->
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Tasks</h2>
+        <div class="content">
+          <p>
+            We evaluate on six benchmarks spanning two categories. <strong>Drawing tasks</strong> test annotation quality: <em>Connect-the-Dots</em> <img src="logos/connect_dots.png" class="task-logo" alt=""> (locate and connect numbered dots in order), <em>Drawing Shapes around Objects</em> <img src="logos/shapes.png" class="task-logo" alt=""> (localize COCO objects with rectangles or ovals), and <em>Part Labeling</em> <img src="logos/label.png" class="task-logo" alt=""> (place text labels at correct part locations on PACO/Pascal-Part images). <strong>Visual reasoning tasks</strong> test whether sketching helps models think: <em>Maze Navigation</em> <img src="logos/maze.png" class="task-logo" alt=""> (trace a path through a 3×3 grid maze), <em>Physics Ball Drop</em> <img src="logos/ball.png" class="task-logo" alt=""> (predict which container a dropped ball lands in), and <em>Object Counting</em> <img src="logos/counting.png" class="task-logo" alt=""> (count and mark every instance of an object).
+          </p>
+          <p>
+            We compare SketchVLM (with Gemini-3-Pro <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> and GPT-5 <img src="logos/openai_green.png" class="task-logo" alt="GPT">) against the state-of-the-art image-editing model <strong>Nano Banana Pro</strong> <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana">, which generates annotations by editing the image directly and by comparing against the fine-tuned sketching models <strong>ViLaSR</strong> <img src="logos/vilasr.png" class="task-logo" alt="ViLaSR"> and <strong>ThinkMorph</strong> <img src="logos/thinkmorph.png" class="task-logo" alt="ThinkMorph">, which are trained specifically to produce visual reasoning traces.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Evaluation</h2>
+        <div class="content">
+          <p>
+            We evaluate using three different metrics. <strong>Accuracy</strong> captures whether the model's text answer is correct. <strong>Sketch quality</strong> captures whether the visual annotation is clear and interpretable, scored 1-5 by a VLM judge that evaluates plausibility and visual clarity. <strong>Sketch-answer alignment</strong> captures whether the sketch faithfully reflects the model's stated answer: a VLM judge views only the annotated image, infers an answer from the sketch alone, and we check if it matches the model's text output.
           </p>
         </div>
       </div>
@@ -250,6 +279,38 @@
       </div>
     </div>
 
+<!-- Results -->
+<div class="columns is-centered" style="margin-top: 2rem;">
+  <div class="column is-four-fifths">
+    <h2 class="title is-3">Results</h2>
+    <!-- Key Takeaway -->
+    <div class="columns" style="margin-top: 2rem;">
+      <div class="column is-four-fifths">
+        <div class="content" style="background:#f8f8f8; border-left:4px solid #3273dc; border-radius:6px; padding:1.1rem 1.4rem;">
+          <p style="margin:0; font-size:1.15rem; line-height:1.5;">
+            <strong>Key Takeaway:</strong> Prompting frontier models (GPT-5 <img src="logos/openai_green.png" class="task-logo" alt="GPT"> and Gemini-3-Pro <img src="logos/gemini_main.png" class="task-logo" alt="Gemini">) to output sketches with SketchVLM yields superior <strong>generalizability, accuracy, and sketch quality</strong> compared to specialized fine-tuned sketching models (ViLaSR <img src="logos/vilasr.png" class="task-logo" alt="">, ThinkMorph <img src="logos/thinkmorph.png" class="task-logo" alt="">) and image-editing models (Nano Banana Pro <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana">).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <p>
+        SketchVLM produces accurate visual reasoning traces while maintaining competitive or superior task accuracy. Fine-tuned sketching models perform near random chance on visual reasoning tasks, and Nano Banana Pro frequently alters the original image, undermining trustworthiness.
+      </p>
+      <figure class="image" style="margin-top: 1rem;">
+        <img src="images/sketch_accuracy.png" alt="Accuracy results table">
+      </figure>
+      <p style="margin-top: 1.5rem;">
+        Beyond accuracy, SketchVLM consistently produces higher-quality sketches that more faithfully reflect the model's stated answer. Baselines either generate low-quality annotations or produce sketches that contradict their own text output.
+      </p>
+      <figure class="image" style="margin-top: 1rem;">
+        <img src="images/sketch_quality_alignment.png" alt="Sketch quality and alignment results table">
+      </figure>
+    </div>
+  </div>
+</div>
+
     <!-- Real-world / multi-turn -->
     <div class="columns is-centered" style="margin-top: 2rem;">
       <div class="column">
@@ -262,20 +323,20 @@
         </p>
 
         <!-- Docker: full row -->
-        <figure class="image" style="margin-top:1.5rem;">
+        <!-- <figure class="image" style="margin-top:1.5rem;">
           <img src="images/docker.png" alt="Docker multi-turn example">
         </figure>
         <p class="has-text-centered figure-caption">
           Multi-turn session where the model explains how to setup PyTorch in a Docker container.
-        </p>
+        </p> -->
 
         <!-- GitHub: full row -->
-        <figure class="image" style="margin-top:1.5rem;">
+        <!-- <figure class="image" style="margin-top:1.5rem;">
           <img src="images/github.png" alt="GitHub multi-turn example">
         </figure>
         <p class="has-text-centered figure-caption">
           Multi-turn session where the model explains how to setup a CI/CD pipeline in GitHub.
-        </p>
+        </p> -->
 
         <!-- Row: Hot water, Motherboard, Nutmeg -->
         <div class="realworld-grid">
@@ -310,6 +371,7 @@
         </p>
       </div>
     </div>
+
 
     <!-- BibTeX -->
     <div class="columns is-centered" id="bibtex" style="margin-top: 2rem;">
