@@ -9,28 +9,12 @@
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="css/bulma.min.css">
-  <link rel="stylesheet" href="css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="#">
-        <span class="icon"><i class="fas fa-home"></i></span>
-      </a>
-    </div>
-  </div>
-</nav>
 
 <!-- Hero / Title -->
 <section class="hero">
@@ -43,7 +27,21 @@
           </h1>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">Anonymous Authors</span>
+            <span class="author-block"><a href="mailto:blc0063@auburn.edu">Brandon Collins</a><sup>1*</sup>,</span>
+            <span class="author-block">Logan Bolton<sup>1</sup>,</span>
+            <span class="author-block">Hung Huy Nguyen<sup>1</sup>,</span>
+            <span class="author-block">Mohammad Taesiri<sup>2</sup>,</span>
+            <span class="author-block">Trung Bui<sup>3</sup>,</span>
+            <span class="author-block">Anh Nguyen<sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Auburn University,</span>
+            <span class="author-block"><sup>2</sup>Independent,</span>
+            <span class="author-block"><sup>3</sup>Adobe</span>
+          </div>
+          <div class="is-size-6 publication-authors" style="margin-top: 0.25rem;">
+            <span class="author-block"><sup>*</sup>Corresponding author</span>
           </div>
 
           <div class="column has-text-centered">
@@ -56,7 +54,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="#"
+                <a href="https://github.com/Brandon-Collins7/sketchvlm"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
@@ -94,7 +92,7 @@
         <img src="images/teaser_v2.png" alt="SketchVLM teaser">
       </figure>
       <h2 class="subtitle has-text-centered" style="margin-top:1rem;">
-        For complex questions, modern chatbots like ChatGPT often return long text responses (a) that are hard for users to understand, verify, and follow. In contrast, SketchVLM guides users (b) step by step by directly annotating the input image and grounding instructions in visual evidence—here, guiding a user through checking their car's oil level (image source: <a href="https://www.youtube.com/watch?v=tNNyu9S65E4">YouTube</a>).
+        For complex questions, modern chatbots like ChatGPT often return long text responses (a) that are hard for users to understand, verify, and follow. In contrast, SketchVLM guides users (b) step by step by directly annotating the input image and grounding instructions in visual evidence—here, guiding a user through checking their car's oil level.
       </h2>
     </div>
   </div>
