@@ -18,7 +18,7 @@
 
 <!-- Hero / Title -->
 <section class="hero">
-  <div class="hero-body">
+  <div class="hero-body" style="padding-bottom: 0;">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
@@ -41,7 +41,7 @@
             <span class="author-block"><sup>3</sup>Adobe</span>
           </div>
           <div class="is-size-6 publication-authors" style="margin-top: 0.25rem;">
-            <span class="author-block"><sup>*</sup>Corresponding author</span>
+            <span class="author-block"><sup>*</sup>Corresponding author: blc0063@auburn.edu</span>
           </div>
 
           <div class="column has-text-centered">
@@ -84,19 +84,17 @@
   </div>
 </section>
 
-<!-- Teaser -->
-<section class="hero teaser">
+<!-- Demo GIF -->
+<section class="hero" style="padding-top: 0;">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <figure class="image">
-        <img src="images/teaser_v2.png" alt="SketchVLM teaser">
+    <div class="hero-body" style="padding-top: 1rem;">
+      <figure class="image" style="width: 70%; margin: 0 auto;">
+        <img src="images/Adobe_motherboard_x2_compress2.gif" alt="SketchVLM demo" style="border-radius: 8px;">
       </figure>
-      <h2 class="subtitle has-text-centered" style="margin-top:1rem;">
-        For complex questions, modern chatbots like ChatGPT often return long text responses (a) that are hard for users to understand, verify, and follow. In contrast, SketchVLM guides users (b) step by step by directly annotating the input image and grounding instructions in visual evidence—here, guiding a user through checking their car's oil level.
-      </h2>
     </div>
   </div>
 </section>
+
 
 <!-- Abstract -->
 <section class="section">
@@ -111,6 +109,20 @@
         </div>
       </div>
     </div>
+
+<!-- Teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <figure class="image">
+        <img src="images/teaser_v2.png" alt="SketchVLM teaser">
+      </figure>
+      <h2 class="subtitle has-text-centered" style="margin-top:1rem;">
+        For complex questions, modern chatbots like ChatGPT often return long text responses (a) that are hard for users to understand, verify, and follow. In contrast, SketchVLM guides users (b) step by step by directly annotating the input image and grounding instructions in visual evidence—here, guiding a user through checking their car's oil level.
+      </h2>
+    </div>
+  </div>
+</section>
 
     <!-- SketchVLM properties -->
     <div class="columns is-centered" style="margin-top: 2rem;">
@@ -142,31 +154,6 @@
     </div>
 
 
-    <!-- Qualitative results figure -->
-    <div class="columns is-centered" style="margin-top: 2rem;">
-      <div class="column">
-        <div style="display:flex; align-items:stretch; gap:0.75rem;">
-          <!-- Task logos aligned to the 3 rows in the figure -->
-          <div style="display:flex; flex-direction:column; justify-content:space-around; flex-shrink:0; padding:0.5rem 0;">
-            <div style="display:flex; align-items:center; justify-content:center; flex:1;">
-              <img src="logos/ball.png" style="height:2.5rem; width:auto;" alt="Physics Ball Drop">
-            </div>
-            <div style="display:flex; align-items:center; justify-content:center; flex:1;">
-              <img src="logos/connect_dots.png" style="height:2.5rem; width:auto;" alt="Connect-the-Dots">
-            </div>
-            <div style="display:flex; align-items:center; justify-content:center; flex:1;">
-              <img src="logos/maze.png" style="height:2.5rem; width:auto;" alt="Maze Navigation">
-            </div>
-          </div>
-          <figure class="image" style="flex:1; min-width:0;">
-            <img src="images/teaser.png" alt="SketchVLM vs Nanobanana qualitative comparison">
-          </figure>
-        </div>
-        <p class="has-text-centered figure-caption">
-          <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> SketchVLM produces correct answers and clear explanatory annotations across multiple tasks.
-        </p>
-      </div>
-    </div>
 
     <!-- Tasks -->
     <!-- <div class="columns is-centered" style="margin-top: 2rem;">
@@ -232,45 +219,80 @@
 
     <!-- Per-task qualitative examples -->
     <div class="columns is-centered" style="margin-top: 2rem;">
-      <div class="column">
+      <div class="column is-four-fifths">
         <h2 class="title is-3">Task Examples</h2>
-
-        <h4 class="title is-5" style="margin-top:1.5rem;">
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h4 class="title is-5 has-text-centered" style="margin-top:0;">
           Counting Objects <img src="logos/counting.png" class="task-logo" alt="">
         </h4>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
         <figure class="image">
           <img src="images/counting_example.png" alt="Counting example">
         </figure>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
         <p class="has-text-centered figure-caption">
           <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana"> generates a different image and predicts an incorrect count. <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> directly outputs a number and severely undercounts, while <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> SketchVLM outputs the correct answer and produces visual annotations to explain its answer.
         </p>
 
-        <h4 class="title is-5" style="margin-top:2rem;">
+        <h4 class="title is-5 has-text-centered" style="margin-top:2rem;">
           Drawing Shapes around Objects <img src="logos/shapes.png" class="task-logo" alt="">
         </h4>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
         <figure class="image">
           <img src="images/object_detection_example.png" alt="Object detection example">
         </figure>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
         <p class="has-text-centered figure-caption">
           When prompted to outline the classes "person" and "sports-ball", <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana"> replaces the original image with a newly generated one, whereas SketchVLM preserves the original image and draws shapes that accurately align with object boundaries and locations.
         </p>
 
-        <h4 class="title is-5" style="margin-top:2rem;">
+        <h4 class="title is-5 has-text-centered" style="margin-top:2rem;">
           Part Labeling <img src="logos/label.png" class="task-logo" alt="">
         </h4>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
         <figure class="image">
           <img src="images/part_labeling_example.png" alt="Part labeling example">
         </figure>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
         <p class="has-text-centered figure-caption">
           Qualitative comparison on the part labeling task. <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> SketchVLM places each part label directly on its corresponding region while preserving the original image, producing more interpretable part annotations than <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana">.
         </p>
 
-        <h4 class="title is-5" style="margin-top:2rem;">
+        <h4 class="title is-5 has-text-centered" style="margin-top:2rem;">
           Physics Ball Drop <img src="logos/ball.png" class="task-logo" alt="">
         </h4>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
         <figure class="image">
           <img src="images/ball_drop_examples.png" alt="Ball drop physics example">
         </figure>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
         <p class="has-text-centered figure-caption">
           SketchVLM generates the most accurate ball drop physics images compared to other baselines.
         </p>
@@ -311,8 +333,12 @@
 
     <!-- Real-world / multi-turn -->
     <div class="columns is-centered" style="margin-top: 2rem;">
-      <div class="column">
+      <div class="column is-four-fifths">
         <h2 class="title is-3">Real-World Applications</h2>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
         <figure class="image">
           <img src="images/multiturn_example.png" alt="Multi-turn UI guidance">
         </figure>
