@@ -81,13 +81,20 @@
   </div>
 </section>
 
-<!-- Demo GIF -->
+<!-- Demo Video + GIF -->
 <section class="hero" style="padding-top: 0;">
-  <div class="container is-max-desktop">
+  <div class="container is-max-fullhd">
     <div class="hero-body" style="padding-top: 1rem;">
-      <figure class="image" style="width: 70%; margin: 0 auto;">
-        <img src="images/Adobe_motherboard_x2_compress2.gif" alt="SketchVLM demo" style="border-radius: 8px;">
-      </figure>
+      <div class="columns is-centered" style="align-items: stretch;">
+        <div class="column" style="display: flex;">
+          <iframe src="https://www.youtube.com/embed/AOeM6tYtAMo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width: 100%; flex: 1; min-height: 0; border-radius: 8px;"></iframe>
+        </div>
+        <div class="column">
+          <figure class="image">
+            <img src="images/Adobe_motherboard_x2_compress2.gif" alt="SketchVLM demo" style="border-radius: 8px; width: 100%;">
+          </figure>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -208,7 +215,7 @@
         <h2 class="title is-3">Evaluation</h2>
         <div class="content">
           <p>
-            We evaluate using three different metrics. <strong>Accuracy</strong> captures whether the model's text answer is correct. <strong>Sketch quality</strong> captures whether the visual annotation is clear and interpretable, scored 1-5 by a VLM judge that evaluates plausibility and visual clarity. <strong>Sketch-answer alignment</strong> captures whether the sketch faithfully reflects the model's stated answer: a VLM judge views only the annotated image, infers an answer from the sketch alone, and we check if it matches the model's text output.
+            We evaluate using three different metrics. <strong>Accuracy</strong> captures whether the model's text answer is correct. <strong>Annotation quality</strong> captures whether the visual annotation is clear and interpretable, scored 1-5 by a VLM judge that evaluates plausibility and visual clarity. <strong>Annotation-text alignment</strong> captures whether the sketch faithfully reflects the model's stated answer: a VLM judge views only the annotated image, infers an answer from the sketch alone, and we check if it matches the model's text output.
           </p>
         </div>
       </div>
@@ -237,7 +244,7 @@
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <p class="has-text-centered figure-caption">
-          <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana"> generates a different image and predicts an incorrect count. <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> directly outputs a number and severely undercounts, while <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> SketchVLM outputs the correct answer and produces visual annotations to explain its answer.
+          <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana"> generates a different image and predicts an incorrect count. <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> directly outputs a number and severely undercounts, while <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> sketchVLM outputs the correct answer and produces visual annotations to explain its answer.
         </p>
 
         <h4 class="title is-5 has-text-centered" style="margin-top:2rem;">
@@ -255,7 +262,7 @@
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <p class="has-text-centered figure-caption">
-          When prompted to outline the classes "person" and "sports-ball", <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana"> replaces the original image with a newly generated one, whereas SketchVLM preserves the original image and draws shapes that accurately align with object boundaries and locations.
+          When prompted to outline the classes "person" and "sports-ball", <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana"> replaces the original image with a newly generated one, whereas SketchVLMs preserve the original image and draw shapes that accurately align with object boundaries and locations.
         </p>
 
         <h4 class="title is-5 has-text-centered" style="margin-top:2rem;">
@@ -273,7 +280,7 @@
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <p class="has-text-centered figure-caption">
-          Qualitative comparison on the part labeling task. <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> SketchVLM places each part label directly on its corresponding region while preserving the original image, producing more interpretable part annotations than <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana">.
+          Qualitative comparison on the part labeling task. <img src="logos/gemini_main.png" class="task-logo" alt="Gemini"> sketchVLM places each part label directly on its corresponding region while preserving the original image, producing more interpretable part annotations than <img src="logos/nanobanana.png" class="task-logo" alt="Nanobanana">.
         </p>
 
         <h4 class="title is-5 has-text-centered" style="margin-top:2rem;">
@@ -313,13 +320,13 @@
 
     <div class="content">
       <p>
-        SketchVLM produces accurate visual reasoning traces while maintaining competitive or superior task accuracy. Fine-tuned sketching models perform near random chance on visual reasoning tasks, and Nano Banana Pro frequently alters the original image, undermining trustworthiness.
+        SketchVLMs produce accurate visual reasoning traces while maintaining competitive or superior task accuracy. Fine-tuned sketching models perform near random chance on visual reasoning tasks, and Nano Banana Pro frequently alters the original image, undermining trustworthiness.
       </p>
       <figure class="image" style="margin-top: 1rem;">
         <img src="images/sketch_accuracy.png" alt="Accuracy results table">
       </figure>
       <p style="margin-top: 1.5rem;">
-        Beyond accuracy, SketchVLM consistently produces higher-quality sketches that more faithfully reflect the model's stated answer. Baselines either generate low-quality annotations or produce sketches that contradict their own text output.
+        Beyond accuracy, SketchVLMs consistently produce higher-quality sketches that more faithfully reflect the model's stated answer. Baselines either generate low-quality annotations or produce sketches that contradict their own text output.
       </p>
       <figure class="image" style="margin-top: 1rem;">
         <img src="images/sketch_quality_alignment.png" alt="Sketch quality and alignment results table">
@@ -388,7 +395,7 @@
         </div>
 
         <p class="has-text-centered figure-caption" style="margin-top:1rem;">
-          SketchVLM can be used in a variety of real world use cases.
+          SketchVLMs can be used in a variety of real world use cases.
         </p>
       </div>
     </div>
