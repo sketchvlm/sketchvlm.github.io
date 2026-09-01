@@ -50,6 +50,23 @@ body {
   padding-bottom: 3rem;
 }
 
+/* ── Conference banner ── */
+.conference-banner {
+  margin: 1.25rem 0;
+}
+
+.conference-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1c4b8c;
+  margin: 0;
+  padding: 0.7rem 1.4rem;
+  background: linear-gradient(135deg, #e8f0fc 0%, #cfe0f7 100%);
+  border-radius: 8px;
+  display: inline-block;
+  border-left: 4px solid #3273dc;
+}
+
 /* ── Figure captions ── */
 .figure-caption {
   margin-top: 0.6rem;
